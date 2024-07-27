@@ -19,13 +19,13 @@ export const GameGrid = () => {
       >
         {loading &&
           skeletons.map((id) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={id} />
+            <GameCardContainer key={id}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {games.map((game) => (
-          <GameCardContainer>
-            <GameCard key={game.id} game={game} />
+          <GameCardContainer key={game.id}>
+            <GameCard game={game} />
           </GameCardContainer>
         ))}
       </SimpleGrid>
