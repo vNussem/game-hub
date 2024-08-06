@@ -15,7 +15,7 @@ const axiosClient =  axios.create({
     }
 });
 
-interface FetchResponse<T> {
+export interface FetchResponse<T> {
     results: T[]
 }
 
