@@ -7,11 +7,6 @@ import apiClient from "../services/api-client";
 import {FetchResponse} from "../services/api-client"
 
 
-// const usePlatform = () => useData<Platform>("/platforms/lists/parents");
-
-
-
-
 const usePlatform = () => useQuery({
     queryKey: CACHE_KEY_PLATFORMS,
     queryFn: () => apiClient.get<FetchResponse<Platform>>("/platforms/lists/parents").then(res => res.data.results),
