@@ -1,10 +1,9 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
-import useData from "./useData";
-import { Platform } from "./useGames";
+import { useQuery } from "@tanstack/react-query";
 import { CACHE_KEY_PLATFORMS } from "../constants";
 import apiClient from "../services/api-client";
+import { Platform } from "./useGames";
 
-import {FetchResponse} from "../services/api-client"
+import { FetchResponse } from "../services/api-client";
 
 
 const usePlatform = () => useQuery({

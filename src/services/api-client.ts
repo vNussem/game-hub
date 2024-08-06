@@ -16,8 +16,10 @@ const axiosClient =  axios.create({
 });
 
 export interface FetchResponse<T> {
-    results: T[]
+    number: number;
+    results: T[];
 }
+
 
 export class ApiClient<T> {
     endpoint: string;
