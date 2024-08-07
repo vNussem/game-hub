@@ -4,12 +4,12 @@ import { usePlatform, Platform } from "../hooks/usePlatforms";
 
 interface Properties {
   onSelectedPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
 export const PlatformSelector = ({
   onSelectedPlatform,
-  selectedPlatform,
+  selectedPlatformId,
 }: Properties) => {
   const { data, error } = usePlatform();
 
@@ -18,7 +18,8 @@ export const PlatformSelector = ({
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform?.name || "Platforms"}
+        {data?.results.find((platform) => platform.id === selectedPlatformId)
+          ?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {data?.results.map((platform) => (

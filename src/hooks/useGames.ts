@@ -17,19 +17,12 @@ const apiClient = new APIClient<Game>("/games");
 
 export const useGames = (gameQuery: GameQuery | null) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
-    queryKey: [
-      ...CACHE_KEY_GAMES,
-      {
-        genre: gameQuery?.genre?.id,
-        platform: gameQuery?.platform?.id,
-        sortOrder: gameQuery?.sortOder,
-      },
-    ],
+    queryKey: [...CACHE_KEY_GAMES, gameQuery],
     queryFn: ({ pageParam = 1 }) =>
       apiClient.get({
         params: {
-          genres: gameQuery?.genre?.id,
-          parent_platforms: gameQuery?.platform?.id,
+          genres: gameQuery?.genreId,
+          parent_platforms: gameQuery?.platformId,
           ordering: gameQuery?.sortOder,
           search: gameQuery?.searchText,
           page: pageParam,
