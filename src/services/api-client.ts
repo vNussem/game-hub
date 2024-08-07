@@ -10,6 +10,7 @@ const axiosInstance = axios.create({
 export interface FetchResponse<T> {
   number: number;
   results: T[];
+  next: string | null;
 }
 
 export class APIClient<T> {
@@ -22,6 +23,6 @@ export class APIClient<T> {
   get = (axiosRequerstConfing: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, axiosRequerstConfing)
-      .then((res) => res.data.results);
+      .then((res) => res.data);
   };
 }
