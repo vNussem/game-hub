@@ -20,7 +20,7 @@ export const useGenres = () => {
     queryKey: CACHE_KEY_GENRES,
     queryFn: apiClient.get,
     staleTime: 24 * 60 * 60 * 1_000,
-    // initialData: { results: genres },
+    initialData: { results: genres, number: genres.length, next: null },
   });
 
   return { data, loading, error };

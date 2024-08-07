@@ -10,7 +10,7 @@ export interface Platform {
 
 const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 
-export const usePlatform = () => {
+export const usePlatforms = () => {
   const { data, error } = useQuery({
     queryKey: CACHE_KEY_PLATFORMS,
     queryFn: apiClient.get,
