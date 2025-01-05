@@ -1,3 +1,4 @@
+import { Platform } from "../entities/Platform";
 import { usePlatforms } from "./usePlatforms";
 
 export const usePlatform = (id?: number) => {
