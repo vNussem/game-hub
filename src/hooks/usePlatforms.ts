@@ -14,7 +14,7 @@ const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 export const usePlatforms = () => {
   const { data, error } = useQuery({
     queryKey: CACHE_KEY_PLATFORMS,
-    queryFn: apiClient.get,
+    queryFn: apiClient.getAll,
     staleTime: ms("24h"),
   });
 

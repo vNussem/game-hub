@@ -19,7 +19,7 @@ export const useGenres = () => {
     error,
   } = useQuery({
     queryKey: CACHE_KEY_GENRES,
-    queryFn: apiClient.get,
+    queryFn: apiClient.getAll,
     staleTime: ms("24h"),
     initialData: { results: genres, number: genres.length, next: null },
   });
