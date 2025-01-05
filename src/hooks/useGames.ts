@@ -8,6 +8,8 @@ import { useGameQueryStore } from "../store";
 export interface Game {
   id: number;
   name: string;
+  slug: string;
+  description_raw: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
@@ -21,7 +23,7 @@ export const useGames = () => {
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: [...CACHE_KEY_GAMES, gameQuery],
     queryFn: ({ pageParam = 1 }) =>
-      apiClient.get({
+      apiClient.getAll({
         params: {
           genres: gameQuery?.genreId,
           parent_platforms: gameQuery?.platformId,
